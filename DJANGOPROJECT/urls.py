@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import home_views
 urlpatterns = [
+    path('home/{{ Name }}',home_views),
     path('home/',home_views),
     path('admin/', admin.site.urls),
 ]
