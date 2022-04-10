@@ -9,14 +9,16 @@ import random
 
 
 def home_views(request,*args):
-    database_id = random.randint(1,3)
+    database_id = random.randint(1,4)
     datababe_get = Articles.objects.get(id=database_id)
+    query_set = Articles.objects.all()
     view_s = f"""
         <p>{datababe_get.title} - {datababe_get.content} - {database_id}</p>
     """
     name = " Ogbu Isreal "
     context = {
-        "Name" : name
+        "Name" : name,
+        "queryset" : query_set
     }
     response2 = render_to_string("index.html",context = context)
     response1 = response2 + view_s
